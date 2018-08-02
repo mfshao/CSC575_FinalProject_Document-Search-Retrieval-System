@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainGUIController">
+   <children>
+      <SplitPane fx:id="splitPane1" dividerPositions="0.3302872062663185" layoutX="268.0" layoutY="323.0" orientation="VERTICAL" prefHeight="800.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane fx:id="split1UpperAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TextField fx:id="filePathTextField" layoutX="14.0" layoutY="14.0" promptText="File Path" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="14.0" />
+                  <Label layoutX="14.0" layoutY="80.0" text="Indexing Algorithm:" AnchorPane.leftAnchor="14.0" />
+                  <RadioButton fx:id="tfidfRadioButton" layoutX="244.0" layoutY="80.0" mnemonicParsing="false" selected="true" text="TF-IDF" />
+                  <RadioButton fx:id="snrRadioButton" layoutX="400.0" layoutY="80.0" mnemonicParsing="false" text="SNR" />
+                  <Button fx:id="indexButton" defaultButton="true" layoutX="15.0" layoutY="128.0" mnemonicParsing="false" onAction="#onIndexButtonClicked" prefWidth="180.0" text="Index Document" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
+                  <Label layoutX="244.0" layoutY="136.0" text="or" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="244.0" />
+                  <Button fx:id="importButton" defaultButton="true" layoutX="295.0" layoutY="128.0" mnemonicParsing="false" onAction="#onImportButtonClicked" prefWidth="180.0" text="Import Indices" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="295.0" />
+                  <Button fx:id="exportButton" layoutX="827.0" layoutY="128.0" mnemonicParsing="false" onAction="#onExportButtonClicked" prefWidth="180.0" text="Export Indices" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                  <Button fx:id="browseButton" layoutX="904.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBrowseButtonClicked" prefWidth="180.0" text="Browse" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+                  <Label fx:id="noLoadedMsgLabel" layoutX="14.0" layoutY="124.0" text="No document indices" textAlignment="CENTER" textFill="RED" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                  <Label fx:id="loadedMsgLabel" layoutX="14.0" layoutY="124.0" text="Document indices loaded" textAlignment="CENTER" textFill="#5ccd5c" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+               </children></AnchorPane>
+          <AnchorPane fx:id="split1LowerAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <SplitPane fx:id="splitPane2" dividerPositions="0.32673267326732675" layoutX="279.0" layoutY="178.0" orientation="VERTICAL" prefHeight="571.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane fx:id="split2UpperAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="83.0" prefWidth="1020.0">
+                           <children>
+                              <TextField fx:id="queryTextField" layoutX="14.0" layoutY="14.0" promptText="Query" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+                              <Label layoutX="14.0" layoutY="76.0" text="Retrieval Model:" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
+                              <RadioButton fx:id="cosineRadioButton" layoutX="194.0" layoutY="110.0" mnemonicParsing="false" selected="true" text="Cosine" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="194.0" />
+                              <RadioButton fx:id="simpleRadioButton" layoutX="582.0" layoutY="110.0" mnemonicParsing="false" text="Simple Matching" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="582.0" />
+                              <Button fx:id="retrieveButton" defaultButton="true" layoutX="888.0" layoutY="68.0" mnemonicParsing="false" onAction="#onRetrieveButtonClicked" prefWidth="180.0" text="Retrieve" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                              <RadioButton fx:id="diceRadioButton" layoutX="321.0" layoutY="110.0" mnemonicParsing="false" text="Dice" />
+                              <RadioButton fx:id="jaccardRadioButton" layoutX="450.0" layoutY="110.0" mnemonicParsing="false" text="Jaccard" />
+                           </children></AnchorPane>
+                      <AnchorPane fx:id="split2LowerAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <HBox layoutX="282.0" layoutY="104.0" prefHeight="407.0" prefWidth="1020.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <ListView fx:id="resultListView" prefHeight="407.0" prefWidth="410.0" />
+                                    <TextArea fx:id="resultTextArea" editable="false" prefHeight="407.0" prefWidth="800.0" />
+                                 </children>
+                              </HBox>
+                           </children></AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
